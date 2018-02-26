@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF1976d2"
+    tools:context="com.teamtreehouse.stormy.MainActivity">
+
+    <TextView
+        android:id="@+id/temperatureLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="100"
+        android:textColor="@android:color/white"
+        android:textSize="150sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/degreeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toEndOf="@+id/temperatureLayout"
+        app:layout_constraintTop_toTopOf="@+id/temperatureLayout"
+        app:srcCompat="@drawable/degree"/>
+
+    <TextView
+        android:id="@+id/timeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="At 5:00 PM it will be"
+        android:textColor="@color/White_half"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/temperatureLayout"
+        app:layout_constraintEnd_toEndOf="@+id/temperatureLayout"
+        app:layout_constraintStart_toStartOf="@+id/temperatureLayout"/>
+
+    <TextView
+        android:id="@+id/locationLabel"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Alcatraz Island, CA"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/timeLabel"
+        app:layout_constraintEnd_toEndOf="@+id/temperatureLayout"
+        app:layout_constraintStart_toStartOf="@+id/temperatureLayout"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/locationLabel"
+        app:layout_constraintEnd_toStartOf="@+id/locationLabel"
+        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/locationLabel"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/cloudy_night"/>
+
+    <TextView
+        android:id="@+id/humidityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="HUMIDITY"
+        android:textColor="@color/White_half"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_33"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@+id/guideline_33"
+        tools:layout_editor_absoluteY="398dp"/>
+
+    <TextView
+        android:id="@+id/rainLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="RAIN ?"
+        android:textColor="@color/White_half"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_66"
+        app:layout_constraintStart_toStartOf="@+id/guideline_66"
+        tools:layout_editor_absoluteY="398dp"/>
+
+    <TextView
+        android:id="@+id/humidityValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="0.88"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_33"
+        app:layout_constraintStart_toStartOf="@+id/guideline_33"
+        tools:layout_editor_absoluteY="417dp"/>
+
+    <TextView
+        android:id="@+id/precipValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:autoLink="none"
+        android:text="88"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_66"
+        app:layout_constraintStart_toStartOf="@+id/guideline_66"
+        tools:layout_editor_absoluteY="417dp"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66"/>
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:text="Stormy with a chance of meatballs"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/humidityValue"/>
+
+    <TextView
+        android:id="@+id/dark_sky_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/dark_sky_message"
+        android:textColor="@color/White_half"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summary"/>
+
+</android.support.constraint.ConstraintLayout>

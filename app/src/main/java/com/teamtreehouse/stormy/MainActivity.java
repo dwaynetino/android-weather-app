@@ -1,6 +1,9 @@
 package com.teamtreehouse.stormy;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
+import android.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.teamtreehouse.stormy.databinding.ActivityMainBinding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,7 +36,10 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    // setContentView(R.layout.activity_main);
+    final ActivityMainBinding binding = DataBindingUtil
+        .setContentView(MainActivity.this,
+            R.layout.activity_main);
 
     // Setup Dark Sky Link
     TextView darkSky = findViewById(R.id.darkSkyAttribution);
@@ -71,6 +77,28 @@ public class MainActivity extends AppCompatActivity {
             if (response.isSuccessful()) {
                 currentWeather = getCurrentDetails(jsonData);
 
+              runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+
+
+                  Log.v(TAG, currentWeather.getTemperature() + "");
+                  CurrentWeather displayWeather = new CurrentWeather(
+                      "Alcatraz Island, CA",
+                      currentWeather.getIcon(),
+                      currentWeather.getTime(),
+                      98.6,
+                      currentWeather.getHumidity(),
+                      currentWeather.getPrecipChance(),
+                      currentWeather.getSummary(),
+                      currentWeather.getTimeZone()
+                  );
+
+                  binding.setWeather(displayWeather);
+                }
+              });
+
+
             } else {
               alertUserAboutError();
             }
@@ -88,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
     }
     Log.d(TAG, "Main UI code is running!");
   }
-
 
   private CurrentWeather getCurrentDetails(String jsonData) throws JSONException {
     JSONObject forecast = new JSONObject(jsonData);

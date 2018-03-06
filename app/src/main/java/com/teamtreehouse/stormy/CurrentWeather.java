@@ -1,5 +1,7 @@
 package com.teamtreehouse.stormy;
 
+import android.graphics.drawable.Drawable;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -155,4 +157,6 @@ public class CurrentWeather {
   public void setSummary(String summary) {
     this.summary = summary;
   }
+
 }
+

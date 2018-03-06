@@ -7,6 +7,7 @@
         <variable
             name="weather"
             type="com.teamtreehouse.stormy.CurrentWeather"/>
+        <import type="android.support.v4.content.ContextCompat" />
     </data>
     <android.support.constraint.ConstraintLayout
 
@@ -23,7 +24,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@{weather.temperature}"
+            android:text="@{String.valueOf(Math.round(weather.temperature))}"
             android:textColor="@android:color/white"
             android:textSize="150sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,8 +36,9 @@
             android:id="@+id/degreeImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginTop="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/temperatureValue"
             app:layout_constraintTop_toTopOf="@+id/temperatureValue"
             app:srcCompat="@drawable/degree"/>
@@ -48,7 +50,7 @@
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="At 5:00 PM It will be"
+            android:text="@{`At ` + String.valueOf(weather.formattedTime)+ ` it will be `}"
             android:textColor="@color/White_half"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/temperatureValue"
@@ -74,9 +76,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:src="@{ContextCompat.getDrawable(context, weather.IconId)}"
             app:layout_constraintBottom_toBottomOf="@+id/locationValue"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/cloudy_night"/>
+            />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline"
@@ -112,7 +115,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="0.88"
+            android:text="@{String.valueOf(weather.humidity)}"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/humidityLabel"
@@ -139,7 +142,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="70%"
+            android:text="@{String.valueOf(Math.round(weather.precipChance * 100))+` %`}"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@+id/precipLabel"
@@ -153,7 +156,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="25dp"
-            android:text="Stormy with a chance of meatballs"
+            android:text="@{weather.summary}"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"

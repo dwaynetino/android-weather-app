@@ -77,27 +77,18 @@ public class MainActivity extends AppCompatActivity {
             if (response.isSuccessful()) {
                 currentWeather = getCurrentDetails(jsonData);
 
-              runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
+                CurrentWeather displayWeather = new CurrentWeather(
+                    currentWeather.getLocationLabel(),
+                    currentWeather.getIcon(),
+                    currentWeather.getTime(),
+                    currentWeather.getTemperature(),
+                    currentWeather.getHumidity(),
+                    currentWeather.getPrecipChance(),
+                    currentWeather.getSummary(),
+                    currentWeather.getTimeZone()
+                    );
 
-
-                  Log.v(TAG, currentWeather.getTemperature() + "");
-                  CurrentWeather displayWeather = new CurrentWeather(
-                      "Alcatraz Island, CA",
-                      currentWeather.getIcon(),
-                      currentWeather.getTime(),
-                      98.6,
-                      currentWeather.getHumidity(),
-                      currentWeather.getPrecipChance(),
-                      currentWeather.getSummary(),
-                      currentWeather.getTimeZone()
-                  );
-
-                  binding.setWeather(displayWeather);
-                }
-              });
-
+                binding.setWeather(displayWeather);
 
             } else {
               alertUserAboutError();
@@ -160,3 +151,4 @@ public class MainActivity extends AppCompatActivity {
     dialog.show(getFragmentManager(), "error_dialog");
   }
 }
+

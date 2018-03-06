@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:src="@{ContextCompat.getDrawable(context, weather.IconId)}"
+            android:src="@{ContextCompat.getDrawable(context, weather.iconId)}"
             app:layout_constraintBottom_toBottomOf="@+id/locationValue"
             app:layout_constraintStart_toStartOf="parent"
             />
